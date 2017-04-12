@@ -16,6 +16,16 @@
 
   <dependencies>
     <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-collections4</artifactId>
+      <version>4.1</version>
+    </dependency>
+    <dependency>
+     <groupId>com.opencsv</groupId>
+     <artifactId>opencsv</artifactId>
+     <version>3.9</version>
+  </dependency>
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
@@ -36,7 +46,28 @@
           <downloadJavadocs>false</downloadJavadocs>
         </configuration>
       </plugin>
-
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.0.0</version>
+          <configuration>
+            <descriptorRefs>
+              <descriptorRef>jar-with-dependencies</descriptorRef>
+            </descriptorRefs>
+           <archive>
+            <manifest><mainClass>vb.App</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id><!--thisisusedforinheritancemerges-->
+            <phase>package</phase><!--bindtothepackagingphase-->
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
       <!-- Set a JDK compiler level -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

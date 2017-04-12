@@ -1,5 +1,6 @@
 package vb;
 
+import vb.App;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -33,6 +34,8 @@ public class AppTest
      */
     public void testApp()
     {
-        assertTrue( true );
+    	App monApp = new App();
+        assertEquals(5, monApp.max(4,5));
+        assertEquals(5, monApp.max(5,4));
     }
 }
